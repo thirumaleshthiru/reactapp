@@ -1,0 +1,67 @@
+this Data.js
+const data = [
+    {
+      url: "react-tutorial-1",
+      title: "React Tutorial 1",
+      content: "Lorem React is Powerful",
+    },
+    {
+      url: "react-tutorial-2",
+      title: "React Tutorial 2",
+      content: "Lorem React is Powerful",
+    },
+    {
+      url: "react-tutorial-3",
+      title: "React Tutorial 3",
+      content: "Lorem React is Powerful",
+    },
+  ];
+  export default data;
+  
+  This is Routex.jsx
+  import { Routes, Route } from "react-router-dom";
+import BlogPosts from "./BlogPosts";
+
+function Routex() {
+  return (
+    <Routes>
+      <Route path="/:url" element={<BlogPosts />} />
+    </Routes>
+  );
+}
+
+export default Routex;
+
+This is Home.jsx
+import React from "react";
+import { Link } from "react-router-dom";
+import data from "./Data.js";
+
+function Home() {
+  console.log(data);
+  return (
+    <main>
+      {data.map((item, index) => (
+        <div key={index}>
+          <h2>{item.title}</h2>
+          <p>{item.content}</p>
+          <Link to={`/${item.url}`}>See More</Link>
+        </div>
+      ))}
+    </main>
+  );
+}
+
+export default Home;
+
+This is App.js
+function App (){
+  return  (
+  <>
+    <Home   />
+  </>
+  )
+}
+
+export default App;
+[the problem is when i click on the see more button the url is changin but not going where is the problem in the components]
